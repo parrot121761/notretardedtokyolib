@@ -611,9 +611,9 @@ function library:init()
     end
 
     function self:GetConfig(name)
-        if isfile(self.cheatname..'/'..self.gamename..'/configs/'..name..self.fileext) then
+--        if isfile(self.cheatname..'/'..self.gamename..'/configs/'..name..self.fileext) then
             return readfile(self.cheatname..'/'..self.gamename..'/configs/'..name..self.fileext);
-        end
+--        end
     end
 
     function self:LoadConfig(name)
