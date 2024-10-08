@@ -611,9 +611,10 @@ function library:init()
     end
 
     function self:GetConfig(name)
---        if isfile(self.cheatname..'/'..self.gamename..'/configs/'..name..self.fileext) then
+        if isfile(self.cheatname..'/'..self.gamename..'/configs/'..name..self.fileext) then
+            print("this file does indeed exist")
             return readfile(self.cheatname..'/'..self.gamename..'/configs/'..name..self.fileext);
---        end
+        end
     end
 
     function self:LoadConfig(name)
@@ -4728,7 +4729,7 @@ function library:CreateSettingsTab(menu)
             library:SendNotification('Config \''..library.flags.configinput..'\' already exists.', 5, c3new(1,0,0));
             return
         end
-        writefile(self.cheatname..'/'..self.gamename..'/configs/'..library.flags.configinput.. self.fileext, http:JSONEncode({}));
+        writefile(self.cheatname..'/'..self.gamename..'/configs/'..library.flags.configinput.. self.fileext, http:JSONEncode({"empty": true}));
         refreshConfigs()
     end}):AddButton({text = 'Delete', confirm = true, callback = function()
         if library:GetConfig(library.flags.selectedconfig) then
